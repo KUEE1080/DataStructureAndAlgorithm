@@ -18,7 +18,7 @@ for i in range(N):
 	elif command == "pop":
 		if len(stack) != 0:
 			result.append(stack[len(stack) - 1])
-			del(stack[len(stack) - 1])
+			stack.pop()
 		else:
 			result.append(-1)
 	else:
