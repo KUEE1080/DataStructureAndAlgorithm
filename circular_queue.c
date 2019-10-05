@@ -1,12 +1,12 @@
 #include <stdio.h>
 #define SIZE 5
 
-#define FALSE 0 //C¾ð¾î¿¡´Â Boolean ÀÚ·áÇüÀÌ ¾ø¾î¼­ »ó¼ö·Î ¸¸µë
+#define FALSE 0 //Cì–¸ì–´ì—ëŠ” Boolean ìžë£Œí˜•ì´ ì—†ì–´ì„œ ìƒìˆ˜ë¡œ ë§Œë“¬
 #define TRUE 1
 
 int items[SIZE];
-int front = -1, rear = -1; //ÃÊ±â front, rear°ª
-int cnt_item = 0; //circular queue ¾È¿¡ ¿ä¼Ò°¡ ¸î°³ ÀÖ´Â Áö Ä«¿îÆÃ ÇÏ´Â º¯¼ö
+int front = -1, rear = -1; //ì´ˆê¸° front, rearê°’
+int cnt_item = 0; //circular queue ì•ˆì— ìš”ì†Œê°€ ëª‡ê°œ ìžˆëŠ” ì§€ ì¹´ìš´íŒ… í•˜ëŠ” ë³€ìˆ˜
 
 int isFull()
 {
@@ -21,11 +21,11 @@ int isEmpty()
 
 void enQueue(int element)
 {
-	if (isFull()) { printf("Queue°¡ °¡µæ Ã¡½À´Ï´Ù \n\n"); }
+	if (isFull()) { printf("Queueê°€ ê°€ë“ ì°¼ìŠµë‹ˆë‹¤ \n\n"); }
 	else
 	{
 		rear = (rear + 1) % SIZE;
-		items[rear % SIZE] = element;
+		items[rear] = element;
 		cnt_item++;
 		printf("Inserted -> %d \n", element);
 	}
@@ -33,7 +33,7 @@ void enQueue(int element)
 }
 void deQueue()
 {
-	if (isEmpty()) { printf("Queue°¡ ºñ¾ú½À´Ï´Ù! \n\n"); }
+	if (isEmpty()) { printf("Queueê°€ ë¹„ì—ˆìŠµë‹ˆë‹¤! \n\n"); }
 	else
 	{
 		front = (front + 1) % SIZE;
@@ -46,9 +46,9 @@ void display()
 {
 	if (isEmpty() == FALSE) 
 	{ 
-		printf("Front °ª -> %d \n", front + 1);
+		printf("Front ê°’ -> %d \n", front + 1);
 
-		printf("Items Ãâ·Â -> ");
+		printf("Items ì¶œë ¥ -> ");
 
 		int i = front + 1;
 		while (1)
@@ -59,9 +59,9 @@ void display()
 		}
 
 		printf("\n");
-		printf("Rear °ª -> %d \n\n", rear);
+		printf("Rear ê°’ -> %d \n\n", rear);
 	}
-	else { printf("Queue°¡ ºñ¾ú½À´Ï´Ù! \n\n"); }
+	else { printf("Queueê°€ ë¹„ì—ˆìŠµë‹ˆë‹¤! \n\n"); }
 
 
 }
