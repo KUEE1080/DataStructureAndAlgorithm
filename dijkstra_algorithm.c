@@ -2,7 +2,7 @@
 
 #define N 5
 
-// Ãß°¡·Î ¼³Á¤ÇÑ »ó¼ö
+// ì¶”ê°€ë¡œ ì„¤ì •í•œ ìƒìˆ˜
 #define NIL 99
 
 #define FALSE 0
@@ -11,8 +11,8 @@
 #define UNVISITED 0
 #define VISITED 1
 
-int W[N][N]; //ÃÊ±â N*N Çà·Ä ÇüÅÂ¿¡ ±×·¡ÇÁ°¡ ÀÔ·ÂµË´Ï´Ù.
-int F[N * 4][2]; // ÀÌ¾îÁ® ÀÖ´Â ¼±ÀÌ Ãâ·ÂµÇ´Â ÇÔ¼ö ÀÔ´Ï´Ù.
+int W[N][N]; //ì´ˆê¸° N*N í–‰ë ¬ í˜•íƒœì— ê·¸ë˜í”„ê°€ ì…ë ¥ë©ë‹ˆë‹¤.
+int F[N * 4][2]; // ì´ì–´ì ¸ ìˆëŠ” ì„ ì´ ì¶œë ¥ë˜ëŠ” í•¨ìˆ˜ ì…ë‹ˆë‹¤.
 
 int _getmin(int data[], int set[]) {
 	int min_idx = 0;
@@ -45,7 +45,7 @@ void dijkstra(int n, const int W[][N], int F[][2]) {
 	int set[N] = { UNVISITED, UNVISITED, UNVISITED, UNVISITED, UNVISITED };
 	int dist[N] = { 0, NIL, NIL, NIL, NIL };
 
-	int path[N] = { NIL, NIL, NIL, NIL, NIL }; //F[][2] ÀÇµµ¸¦ ¸ô¶ó¼­ ÀÌ°Å·Î ´ëÃ¼
+	int path[N] = { NIL, NIL, NIL, NIL, NIL }; //F[][2] ì˜ë„ë¥¼ ëª°ë¼ì„œ ì´ê±°ë¡œ ëŒ€ì²´
 
 	while (_empty(set) == FALSE) {
 		int u = _getmin(dist, set);
@@ -58,18 +58,15 @@ void dijkstra(int n, const int W[][N], int F[][2]) {
 		}
 	}
 
-	printf("ÀÌÀ½¼± ÁıÇÕ FÀÇ Çà·Ä \n");
-	printf("(v%d-v%d) \n", path[4] + 1, 4 + 1);
-	printf("(v%d-v%d) \n", path[3] + 1, 3 + 1);
-	printf("(v%d-v%d) \n", path[2] + 1, 2 + 1);
-	printf("(v%d-v%d) \n", path[1] + 1, 1 + 1);
+	printf("ì´ìŒì„  ì§‘í•© Fì˜ í–‰ë ¬ \n");
+	for (int i = N - 1; i >= 1; i--) { printf("(v%d-v%d) \n", path[i] + 1, i + 1); }
 }
 
 int main()
 {
 	int i, j;
 	int W[N][N];
-	printf("°¡ÁßÄ¡ ±×·¡ÇÁÀÇ ¿ø¼ÒµéÀ» ÀÔ·ÂÇÏ¼¼¿ä : \n");
+	printf("ê°€ì¤‘ì¹˜ ê·¸ë˜í”„ì˜ ì›ì†Œë“¤ì„ ì…ë ¥í•˜ì„¸ìš” : \n");
 	for (i = 0; i < N; i++)
 		for (j = 0; j < N; j++)
 		{
