@@ -40,12 +40,18 @@ int _empty(int data[]) {
 	return TRUE;
 }
 
+void _initSet(int set[]) { for (int i = 0; i < N; i++) { set[i] = UNVISITED; } }
+void _initDist(int dist[]) { for (int i = 0; i < N; i++) { dist[i] = NIL; } }
+void _initPath(int path[]) { for (int i = 0; i < N; i++) { path[i] = NIL; } }
+
 
 void dijkstra(int n, const int W[][N], int F[][2]) {
-	int set[N] = { UNVISITED, UNVISITED, UNVISITED, UNVISITED, UNVISITED };
-	int dist[N] = { 0, NIL, NIL, NIL, NIL };
+	int set[N], dist[N], path[N];
+	_initSet(set);
+	_initDist(dist);
+	_initPath(path); //F[][2] 의도를 몰라서 이거로 대체
 
-	int path[N] = { NIL, NIL, NIL, NIL, NIL }; //F[][2] 의도를 몰라서 이거로 대체
+	dist[0] = 0;
 
 	while (_empty(set) == FALSE) {
 		int u = _getmin(dist, set);
